@@ -1,2 +1,44 @@
-
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe Mini-App</title>
+    <script type="text/javascript" src="./app.js"></script>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      td {
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <table id="table">
+      <tr>
+        <td id="topLeft" onclick="displayX(this.id)"></td>
+        <td id="topCenter" onclick="displayX(this.id)"></td>
+        <td id="topRight" onclick="displayX(this.id)"></td>
+      </tr>
+      <tr>
+        <td id="centerLeft" onclick="displayX(this.id)"></td>
+        <td id="centerCenter" onclick="displayX(this.id)"></td>
+        <td id="centerRight" onclick="displayX(this.id)"></td>
+      </tr>
+      <tr>
+        <td id="bottomLeft" onclick="displayX(this.id)"></td>
+        <td id="bottomCenter" onclick="displayX(this.id)"></td>
+        <td id="bottomRight" onclick="displayX(this.id)"></td>
+      </tr>
+    </table>
+  </body>
+</html>
