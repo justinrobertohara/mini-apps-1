@@ -23,28 +23,40 @@
         height: 50px;
         width: 50px;
       }
+      p {
+        text-align: center;
+      }
+      td {
+        text-align: center;
+      }
+      button {
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
     <h4>by: Justin O'Hara</h4>
+    <p>Remember X's always Go First</p>
     <table id="table">
       <tr>
-        <td id="topLeft" onclick="displayX(this.id)"></td>
-        <td id="topCenter" onclick="displayX(this.id)"></td>
-        <td id="topRight" onclick="displayX(this.id)"></td>
+        <td id="top_Left" onclick="displayX(this.id)"></td>
+        <td id="top_Center" onclick="displayX(this.id)"></td>
+        <td id="top_Right" onclick="displayX(this.id)"></td>
       </tr>
       <tr>
-        <td id="centerLeft" onclick="displayX(this.id)"></td>
-        <td id="centerCenter" onclick="displayX(this.id)"></td>
-        <td id="centerRight" onclick="displayX(this.id)"></td>
+        <td id="center_Left" onclick="displayX(this.id)"></td>
+        <td id="center_Center" onclick="displayX(this.id)"></td>
+        <td id="center_Right" onclick="displayX(this.id)"></td>
       </tr>
       <tr>
-        <td id="bottomLeft" onclick="displayX(this.id)"></td>
-        <td id="bottomCenter" onclick="displayX(this.id)"></td>
-        <td id="bottomRight" onclick="displayX(this.id)"></td>
+        <td id="bottom_Left" onclick="displayX(this.id)"></td>
+        <td id="bottom_Center" onclick="displayX(this.id)"></td>
+        <td id="bottom_Right" onclick="displayX(this.id)"></td>
       </tr>
     </table>
+
+    <button onclick="clearBoard()">Reset</button>
   </body>
   <script type="text/javascript" src="./app.js"></script>
 </html>
