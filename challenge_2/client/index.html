@@ -7,19 +7,19 @@
     <title>CSV Report</title>
   </head>
   <body>
-    <form method="POST" action="/upload_json">
-      First name:<br />
-      <input type="text" name="firstname" value="Mickey" /><br />
-      Last name:<br />
-      <input type="text" name="lastname" value="Mouse" /><br /><br />
-      County:<br />
-      <input type="text" name="county" value="Orange County" /><br />
-      Role:<br />
-      <input type="text" name="role" value="Entertainer" /><br />
-      Sales:<br />
-      <input type="number" name="sales" value="" /><br />
-      <input type="submit" value="Submit" onclick="getData()" />
+    <form method="post" action="/upload_json">
+      Sample Data:<br />
+      <!-- <input type="text" name="data" value="" /><br /> -->
+      <textarea rows="4" cols="50" name="data">input dummy data</textarea>
+      <input type="submit" value="Submit" />
     </form>
   </body>
   <script type="text/javascript" src="./app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    // $('form').on('submit', function(e) {
+    //   e.preventDefault();
+    //   // ... more event handler code here
+    // });
+  </script>
 </html>
