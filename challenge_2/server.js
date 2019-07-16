@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 var fs = require('fs');
+var jsonData = require('./samples/sales_report.js');
 
 // app.get('/', (req, res) => res.send('./client'));
 
@@ -13,12 +14,15 @@ app.use(express.static('client'));
 app.use(express.urlencoded());
 
 app.post('/upload_json', (req, res) => {
-  var reqData = req.body;
+  var reqData = jsonData;
+
   // console.log(res.sendFile('/samples/csv_resport.csv'));
   // console.log('heres the response', res);
   // res.status(202);
   // res.sendFile('./samples/csv_report.csv');
-  console.log(reqData);
+  // console.log('reqdata.data', reqData.data);
+
+  console.log(jsonData);
 
   fs.writeFile('./samples/csv_report.csv', reqData, (err, firstData) => {
     if (err) {
@@ -31,7 +35,7 @@ app.post('/upload_json', (req, res) => {
         } else {
           res.status(202);
           console.log(data);
-          res.send(data);
+          res.send(JSON.stringify(data));
         }
       });
     }

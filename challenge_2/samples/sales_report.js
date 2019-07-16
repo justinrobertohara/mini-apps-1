@@ -1,4 +1,4 @@
-{
+module.exports = {
     "firstName": "Joshie",
     "lastName": "Wyattson",
     "county": "San Mateo",
@@ -45,3 +45,4 @@
     }
   ]
 };
+
