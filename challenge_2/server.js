@@ -13,6 +13,28 @@ app.listen(port, () =>
 app.use(express.static('client'));
 app.use(express.urlencoded());
 
+
+//flatten json Data 
+// function flattenObj(obj) {
+  
+//   var newArrObj = [];
+//   newArrObj.push(obj);
+
+
+// if (obj.children.length > 0){
+//   for (let i = 0; i < obj.children.length; i++){
+//     var newFlat = obj.children[i]
+//     if (newFlat.children) {
+//       for (let j = 0; j < newFlat.children.length; j++){
+//         newArrObj.push(newFlat.children[j])
+//       }
+//     }
+//     newArrObj.push(newFlat)
+//   }
+// }
+// return newArrObj;
+// }
+
 app.post('/upload_json', (req, res) => {
   var reqData = jsonData;
 
