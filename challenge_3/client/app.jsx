@@ -24,6 +24,7 @@ class NameForm extends React.Component {
     this.initialButton = this.initialButton.bind(this);
     this.secondForm = this.secondForm.bind(this);
     this.thirdForm = this.thirdForm.bind(this);
+    this.sendData = this.sendData.bind(this);
   }
 
   initialButton() {
@@ -42,6 +43,35 @@ class NameForm extends React.Component {
     this.setState({
       thirdForm: true
     });
+  }
+
+  sendData() {
+    var clientCheckout = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      address1: this.state.address1,
+      address2: this.state.address2,
+      city: this.state.city,
+      state: this.state.state,
+      zipCode: this.state.zipCode,
+      cc: this.state.cc,
+      expiryDate: this.state.expiryDate,
+      cvv: this.state.cvv,
+      billingZip: this.state.billingZip
+    };
+
+    axios({
+      method: 'post',
+      url: '/checkout',
+      data: { clientCheckout }
+    })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleChange(event) {
@@ -63,22 +93,40 @@ class NameForm extends React.Component {
           </button>
         </div>
       );
-    }
-    if (this.state.initialButton === true && this.state.secondForm === false) {
+    } else if (
+      this.state.initialButton === true &&
+      this.state.secondForm === false &&
+      this.state.thirdForm === false
+    ) {
       console.log(this.state);
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Email:
-            <input type="text" name="email" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Password:
-            <input type="text" name="password" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
           </label>
           <input type="submit" value="Next" />
           <div>
@@ -86,29 +134,58 @@ class NameForm extends React.Component {
           </div>
         </form>
       );
-    }
-    if (this.state.initialButton === true && this.state.secondForm === true) {
+    } else if (
+      this.state.initialButton === true &&
+      this.state.secondForm === true &&
+      this.state.thirdForm === false
+    ) {
+      console.log(this.state);
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
             Address Line 1:
-            <input type="text" name="address1" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="address1"
+              value={this.state.address1}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Address Line 2:
-            <input type="text" name="address2" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="address2"
+              value={this.state.address2}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             City:
-            <input type="text" name="city" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="city"
+              value={this.state.city}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             State:
-            <input type="text" name="state" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="state"
+              value={this.state.state}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Zip-Code:
-            <input type="text" name="zipCode" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="zipCode"
+              value={this.state.zipCode}
+              onChange={this.handleChange}
+            />
           </label>
           <input type="submit" value="Next" />
           <div>
@@ -116,33 +193,53 @@ class NameForm extends React.Component {
           </div>
         </form>
       );
-    }
-    if (
+    } else if (
       this.state.initialButton === true &&
       this.state.secondForm === true &&
       this.state.thirdForm === true
     ) {
+      console.log(this.state);
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
             Credit Card Number:
-            <input type="text" name="cc" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="cc"
+              value={this.state.cc}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Expiry Date
-            <input type="text" name="expiryDate" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="expiryDate"
+              value={this.state.expiryDate}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             CVV:
-            <input type="text" name="cvv" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="cvv"
+              value={this.state.cvv}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             Billing Zip Code:
-            <input type="text" name="billingZip" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="billingZip"
+              value={this.state.billingZip}
+              onChange={this.handleChange}
+            />
           </label>
           <input type="submit" value="Next" />
           <div>
-            <button onClick={this.thirdForm}>Go To Next Page</button>
+            <button onClick={this.sendData}>Purchase</button>
           </div>
         </form>
       );

@@ -4,6 +4,9 @@ const port = 3000;
 
 app.use(express.static('public'));
 
-// app.get('/', (req, res) => res.send('Hello World!'));
+app.post('/checkout', function(req, res) {
+  console.log(req.body);
+  res.send('you have posted data');
+});
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Checkout app listening on port ${port}!`));
