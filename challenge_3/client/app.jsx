@@ -61,6 +61,8 @@ class NameForm extends React.Component {
       billingZip: this.state.billingZip
     };
 
+    console.log(clientCheckout);
+
     axios({
       method: 'post',
       url: '/checkout',
@@ -68,6 +70,23 @@ class NameForm extends React.Component {
     })
       .then(function(response) {
         console.log(response);
+        this.setState({
+          initialButton: false,
+          secondForm: false,
+          thirdForm: false,
+          name: '',
+          email: '',
+          password: '',
+          address1: '',
+          address2: '',
+          city: '',
+          state: '',
+          zipCode: '',
+          cc: '',
+          expiryDate: '',
+          cvv: '',
+          billingZip: ''
+        });
       })
       .catch(function(error) {
         console.log(error);
@@ -82,6 +101,23 @@ class NameForm extends React.Component {
     console.log(event);
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    this.setState({
+      initialButton: false,
+      secondForm: false,
+      thirdForm: false,
+      name: '',
+      email: '',
+      password: '',
+      address1: '',
+      address2: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      cc: '',
+      expiryDate: '',
+      cvv: '',
+      billingZip: ''
+    });
   }
 
   render() {
@@ -128,7 +164,7 @@ class NameForm extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Next" />
+          {/* <input type="submit" value="Next" /> */}
           <div>
             <button onClick={this.secondForm}>Go To Second Page</button>
           </div>
@@ -187,7 +223,7 @@ class NameForm extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Next" />
+          {/* <input type="submit" value="Next" /> */}
           <div>
             <button onClick={this.thirdForm}>Go To Third Form Page</button>
           </div>
@@ -237,7 +273,7 @@ class NameForm extends React.Component {
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Next" />
+          {/* <input type="submit" value="Next" /> */}
           <div>
             <button onClick={this.sendData}>Purchase</button>
           </div>

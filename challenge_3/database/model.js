@@ -2,7 +2,12 @@ const Sequelize = require('sequelize');
 const db = require('./index');
 
 const BillingInfoModel = db.define('BillingInfo', {
-  id: { type: Sequelize.INTEGER, primaryKey: true, autoIncremet: true },
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+    allowNull: true
+  },
   name: {
     type: Sequelize.STRING
   },
@@ -30,7 +35,7 @@ const BillingInfoModel = db.define('BillingInfo', {
   cc: {
     type: Sequelize.STRING
   },
-  expiryData: {
+  expiryDate: {
     type: Sequelize.STRING
   },
   cvv: {
